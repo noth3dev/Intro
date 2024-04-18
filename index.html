@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEV's gate</title>
+<style>
+  body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 2s; /* 배경색 부드럽게 바뀌는 트랜지션 */
+  }
+  
+  .container {
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    position: relative;
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 2s;
+  }
+
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.5s;
+    animation: spinAndFade 2s ease-in-out forwards; /* 애니메이션 duration 변경 */
+  }
+
+  @keyframes spinAndFade {
+    0% {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+    25% {
+      opacity: 1; /* 글자가 나타나는 지점 조정 */
+    }
+    75% {
+      opacity: 1;                                                                                                             
+    }
+    100% {
+      opacity: 0;
+      transform: rotateY(0deg);
+    }
+  }
+
+  .reveal {
+    opacity: 1;
+  }
+  
+  .after-animation {
+    color: white;
+    animation: fadeIn 2s forwards, moveUp 2s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes moveUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100px);
+    }
+  }
+
+  .btn {
+  color: #121212;
+  background-color: #f0f0f0;
+  border: none;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  margin-top: 50%;
+  transform: translate(-50%);
+  left: 50%;
+  cursor: pointer;
+  transition: ease-in-out 0.5s;
+  }
+  .btn:hover {
+  background-color: #121212;
+  color: white;
+  border: white 1px solid;
+  box-shadow: 0px 0px 20px 5px #f0f0f0;
+
+}
+
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <span class="letter">N</span>
+    <span class="letter">O</span>
+    <span class="letter">T</span>
+    <span class="letter">_</span>
+    <span class="letter">T</span>
+    <span class="letter">H</span>
+    <span class="letter">E</span>
+    <span class="letter">D</span>
+    <span class="letter">E</span>
+    <span class="letter">V</span>
+    <!-- 숨겨진 버튼 -->
+    <button id="myButton" class="btn" style="display: none;" onclick="location.href='https://noth3dev.github.io/notth3dev/'">View Portfolio</button>
+  </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const letters = document.querySelectorAll('.letter');
+    let delay = 100;
+
+    letters.forEach(letter => {
+      setTimeout(() => {
+        letter.classList.add('reveal');
+      }, delay);
+      delay += 200;
+    });
+    
+    setTimeout(() => {
+      const body = document.body;
+      body.style.backgroundColor = "#121212"; 
+      body.style.transition = "background-color 2s"; 
+      const container = document.querySelector('.container');
+      container.classList.add('after-animation');
+      container.innerHTML += "<div class='centered'>#THE ARTIST</div>";
+      
+      const button = document.getElementById('myButton');
+      button.style.display = 'block'; 
+    }, delay);
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+  const letters = document.querySelectorAll('.letter');
+  let delay = 100;
+
+  letters.forEach(letter => {
+    setTimeout(() => {
+      letter.classList.add('reveal');
+    }, delay);
+    delay += 200;
+  });
+});
+
+</script>
+</body>
+</html>
